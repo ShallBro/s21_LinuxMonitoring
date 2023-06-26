@@ -1,0 +1,16 @@
+#!/bin/bash
+
+TZ=$(timedatectl show --property=Timezone --value)
+OS=$(cat /etc/issue)
+date=$(date)
+time=$(uptime -p)
+total_seconds=$(awk '{print $1}' /proc/uptime)
+ip=$(ip addr show enp0s3 | grep 'inet ' | awk '{print $2}')
+mask=$(ifconfig enp0s3 | grep 'netmask ' | awk '{print $4}')
+gateway=$(ip route show default | awk '{print $3}')
+ram_total=$(free -m | awk '/Mem:/{printf "RAM_TOTAL = %.3f GB\n", $2/1024}')
+ram_used=$(free -m | awk '/Mem:/{printf "RAM_USED = %.3f GB\n", $3/1024}')
+ram_free=$(free -m | awk '/Mem:/{printf "RAM_FREE = %.3f GB\n", $4/1024}')
+space_root=$(df /root/ | grep '/dev/mapper/' | awk '{printf "SPACE_ROOT = %.2f MB\n", $2/1024}')
+space_root_used=$(df /root/ | grep '/dev/mapper/' | awk '{printf "SPACE_ROOT_USED = %.2f MB\n", $3/1024}')
+space_root_free=$(df /root/ | grep '/dev/mapper/' | awk '{printf "SPACE_ROOT_FREE = %.2f MB\n", $4/1024}')

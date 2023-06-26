@@ -1,0 +1,18 @@
+#!/bin/bash
+
+echo "hostname = $HOSTNAME"
+echo "timezone = $TZ"
+echo "user = $USER"
+echo "OS = $OS"
+echo "date = $date"
+echo "uptime = $time"
+echo "uptime_sec = $total_seconds sec"
+echo "IP = $ip"
+echo "MASK = $mask"
+echo "GATEWAY = $gateway"
+echo "$ram_total"
+echo "$ram_used"
+echo "$ram_free"
+echo "$space_root"
+echo "$space_root_used"
+echo "$space_root_free"
