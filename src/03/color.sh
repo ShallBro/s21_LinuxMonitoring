@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# Черный: - 6
+# Красный: - 2
+# Зеленый: - 3
+# Синий: - 4
+# Фиолетовый: - 5
+# Белый: - 1
+
 function background_color() {
     color=$var
     case "$color" in
